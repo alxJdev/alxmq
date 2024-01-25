@@ -15,6 +15,7 @@ mod retrieve_from_main_que;
 mod to_response_que;
 mod retrieve_from_response_que;
 mod error;
+mod ws;
 
 pub struct AppState {
     que_0: Mutex<Que>,

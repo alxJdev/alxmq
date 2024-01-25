@@ -1,0 +1,12 @@
+[package]
+name = "alxmq"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+actix-web = "4.4.1"
+uuid = { version = "1.6.1", features = ["v4"] }
+tokio = { version = "1.0.0", features = ["rt", "rt-multi-thread", "macros"] }
+serde = { version = "1.0.193", features = ["derive"] }
