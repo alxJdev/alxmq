@@ -6,6 +6,7 @@ use crate::que::Que;
 use crate::retrieve_from_main_que::retrieve_from_main_que_handler;
 use crate::retrieve_from_response_que::retrieve_from_response_que_handler;
 use crate::to_response_que::to_response_que_handler;
+use crate::ws::ws_handler;
 
 mod que;
 mod index;
@@ -18,8 +19,8 @@ mod error;
 mod ws;
 
 pub struct AppState {
-    que_0: Mutex<Que>,
-    que_1: Mutex<Que>,
+    pub que_0: Mutex<Que>,
+    pub que_1: Mutex<Que>,
 }
 
 #[actix_web::main]
@@ -37,6 +38,7 @@ async fn main() -> std::io::Result<()> {
             .service(retrieve_from_main_que_handler)
             .service(to_response_que_handler)
             .service(retrieve_from_response_que_handler)
+            .service(ws_handler)
     })
         .bind("127.0.0.1:42069")?
         .run().await
